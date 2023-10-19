@@ -1,7 +1,7 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:api_example/models/post.dart';
-import 'package:api_example/services/api_service.dart';
+import 'post.dart';
+import 'api_service.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,8 +46,14 @@ class _PostListState extends State<PostList> {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(snapshot.data![index].title),
-                  subtitle: Text(snapshot.data![index].body),
+                  title: Text(
+                    snapshot.data![index].title,
+                    style: TextStyle(color: Colors.red), // Cambiar color a rojo
+                  ),
+                  subtitle: Text(
+                    snapshot.data![index].body,
+                    style: TextStyle(color: Colors.blue), // Cambiar color a azul
+                  ),
                 );
               },
             );
@@ -59,3 +65,4 @@ class _PostListState extends State<PostList> {
     );
   }
 }
+
